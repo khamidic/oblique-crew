@@ -753,8 +753,12 @@ textarea {
 }
 
 .input-form__row {
-  margin-top: 2.75rem;
+  margin-top: 1.75rem;
   position: relative;
+}
+
+.input-form__row--last {
+  margin-top: 2.75rem;
 }
 
 .input-form__row__field {
