@@ -471,6 +471,22 @@ textarea {
   text-align: center;
 }
 
+.crew-wrk.grid-layout__col--2:nth-child(odd) {
+  padding-right: 24px;
+}
+
+.crew-wrk.grid-layout__col--2:nth-child(even) {
+  padding-left: 24px;
+}
+
+.crew-wrk {
+  margin-top: 164px;
+}
+
+.crew-wrk:nth-of-type(-n + 2) {
+  margin-top: 0;
+}
+
 .crew-wrk-headline__logo {
   position: relative;
   top: 1.75rem;
@@ -793,7 +809,6 @@ textarea {
   font-weight: 500;
   letter-spacing: -.0225rem;
   color: #04090D;
-  background: none;
   border: none;
   display: block;
   padding: 8px 40px 8px 0;
