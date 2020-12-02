@@ -1,0 +1,910 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+@font-face {
+  font-family: 'SteradianMedium';
+  src: url('./font/SteradianMedium.woff2') format('woff2'),
+  url('./font/SteradianMedium.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SteradianRegular';
+  src: url('./font/SteradianRegular.woff2') format('woff2'),
+  url('./font/SteradianRegular.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SteradianBold';
+  src: url('./font/SteradianBold.woff2') format('woff2'),
+  url('./font/SteradianBold.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
+}
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+  text-rendering: geometricPrecision;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .sr-only class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* Layout */
+.container {
+  width: 100%;
+  padding: 0 156px;
+}
+
+.grid-layout {
+  display: flex;
+}
+
+.grid-layout__col {
+  width: 100%;
+}
+
+.grid-layout__col--2 {
+  width: calc(100% / 2);
+}
+
+.grid-layout__col--3 {
+  width: calc(100% / 3);
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 4rem 96px 0 96px;
+}
+
+.header--sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0 96px;
+  height: 84px;
+  background: #04090D;
+  border-bottom: 1px solid #20262A;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  transform: translateY(-84px);
+  transition: 0.5s transform cubic-bezier(0.37, 0, 0.63, 1);
+}
+
+.header__nav {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header__lets-talk {
+  position: absolute;
+  right: 0;
+  padding-right: 2.25rem;
+}
+
+.link-icon--lets-talk {
+  position: absolute;
+  top: -6px;
+  right: 0;
+}
+
+.header__link {
+  font-family: 'SteradianMedium', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #04090D;
+}
+
+.header__link--white {
+  color: #ffffff;
+}
+
+.header__link--nav {
+  margin-right: 2.5rem;
+}
+
+.link-icon {
+  font-size: 1.5rem;
+  margin-left: 8px;
+}
+
+.section-hero {
+  background: #ffffff;
+}
+
+.section-hww,
+.section-crew-wrk,
+.section-why-us,
+.section-people {
+  background: #04090D;
+  padding: 13rem 0 0;
+}
+
+.section-hero {
+  box-sizing: content-box;
+  padding-top: 64px;
+  padding-bottom: 56px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.heading-hero {
+  font-family: 'SteradianMedium', sans-serif;
+  font-size: 7.083333vw;
+  font-weight: 500;
+  line-height: 1.098;
+  letter-spacing: -.35vw;
+  color: #04090D;
+  text-align: center;
+  z-index: 10;
+  position: relative;
+}
+
+.heading-hero__bottom {
+  width: 73.1944444vw;
+  margin: 0 auto;
+  height: 8px;
+  background: #132BFF;
+  z-index: -1;
+  transform-origin: left;
+}
+
+.hero-link {
+  padding-top: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.gif-ground {
+  position: relative;
+  z-index: 20;
+}
+
+.gif-block {
+  position: relative;
+  height: 0;
+  width: 100%;
+}
+
+.gif-circle {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 260px;
+  z-index: 1;
+  transform: scale(0);
+  transform-origin: center center;
+}
+
+.gif-circle--designer {
+  left: 0;
+  top: -7rem;
+}
+
+.gif-circle--development {
+  right: 0;
+  top: -7rem;
+}
+
+.paragraph-hero {
+  font-family: 'SteradianRegular', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.7778;
+  letter-spacing: -.01rem;
+  color: #04090D;
+  text-align: center;
+  max-width: 600px;
+  margin: 56px auto 0;
+}
+
+.btn-hire {
+  display: block;
+  width: fit-content;
+  font-family: 'SteradianRegular', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: -.02rem;
+  padding: 1.75rem 4.5rem;
+  color: #ffffff;
+  background: #132BFF;
+}
+
+.btn-hire--hero,
+.btn-hire--footer {
+  margin: 0 auto;
+}
+
+.btn-hire--hero,
+.btn-hire--footer {
+  margin-top: 80px;
+}
+
+.paragraph-hero__bold {
+  font-family: 'SteradianMedium', sans-serif;
+}
+
+.heading-main {
+  font-family: 'SteradianMedium', sans-serif;
+  font-size: 80px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -4px;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.heading-main--hww {
+  position: relative;
+  max-width: 680px;
+}
+
+.heading-main--hww:after {
+  content: '👌';
+  font-size: 4rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(-2.6rem, 1.2rem) rotate(8.74deg);
+}
+
+.grid-layout--work-steps {
+  justify-content: space-between;
+  margin-top: 15.81vh;
+}
+
+.work-steps__item {
+  max-width: 250px;
+}
+
+.work-steps__item__numeration {
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  letter-spacing: -.13px;
+  color: #ffffff;
+  border-radius: 40px;
+  border: 1px solid #2E353B;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.work-steps__item__heading {
+  font-family: 'Lora', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -.015rem;
+  line-height: 1.3333;
+  color: #ffffff;
+  margin-top: 2rem;
+}
+
+.work-steps__item__paragraph {
+  font-family: 'SteradianRegular', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: -.03375rem;
+  line-height: 1.77778;
+  color: #969DA2;
+  margin-top: 2.5rem;
+}
+
+.crew-wrk-headline {
+  font-family: 'SteradianMedium', sans-serif;
+  font-size: 1.3125rem;
+  font-weight: 500;
+  color: #ffffff;
+  text-align: center;
+}
+
+.crew-wrk-headline__logo {
+  position: relative;
+  top: 1.75rem;
+}
+
+.crew-wrk-headline__logo:after {
+  content: url("../img/crew-underline.svg");
+}
+
+.grid-layout--crew-work {
+  flex-wrap: wrap;
+  margin-top: 15.81vh;
+}
+
+.crew-work-img {
+  border-radius: 17px;
+  border: 7px solid #182128;
+  filter: drop-shadow(0px 33px 53px rgba(88, 111, 129, 0.1));
+}
+
+.visual-container {
+  margin: 0;
+}
+
+.visual-container img,
+.visual-container video {
+  max-width: 100%;
+}
+
+.crew-member-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3.5rem;
+}
+
+.crew-member-profile__img {
+  width: 72px;
+  height: 72px;
+}
+
+.crew-member-profile__details {
+  margin-left: 2rem;
+}
+
+.crew-member-profile__details__name {
+  font-family: 'SteradianMedium', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: .01125rem;
+  color: #ffffff;
+}
+
+.crew-member-profile__details__title {
+  font-family: 'SteradianMedium', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.43px;
+  color: #56626B;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.heading-main--why-us {
+  max-width: 600px;
+}
+
+.grid-layout--benefits {
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: space-between;
+  margin-top: 16rem;
+  z-index: 1;
+}
+
+.visual-container--benefits {
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 376px;
+  z-index: -1;
+}
+
+.benefits-item {
+  text-align: center;
+  max-width: 300px;
+  margin-top: 11rem;
+}
+
+.benefits-item:nth-of-type(-n + 3) {
+  margin-top: 0;
+}
+
+.benefits-item__heading {
+  font-family: 'SteradianMedium', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: -.06rem;
+  color: #ffffff;
+}
+
+.benefits-item__heading--on-site {
+  position: relative;
+  z-index: 1;
+}
+
+.benefits-item__heading--on-site:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: url("../img/on-site-bicycle.png") no-repeat;
+  background-size: 100%;
+  width: 102px;
+  height: 102px;
+  z-index: -1;
+  transform: translateY(-50%);
+}
+
+.benefits-item__paragraph {
+  font-family: 'SteradianRegular', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.75;
+  color: #8E949A;
+}
+
+.heading-main--ppl {
+  max-width: 880px;
+}
+
+.testimonial {
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 124px auto;
+}
+
+.testimonial__name {
+  font-family: 'Lora', serif;
+  font-size: 1.375rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-top: 2rem;
+}
+
+.testimonial__title {
+  font-family: 'SteradianMedium', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.43px;
+  color: #56626B;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.testimonial__paragraph {
+  font-family: 'SteradianRegular', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.75;
+  color: #93A0A9;
+  margin-top: 4rem;
+}
+
+.title-track {
+  width: 100vw;
+  height: 230px;
+  background: url("../img/positions-crew.svg") no-repeat;
+  background-size: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.heading-footer {
+  font-family: 'SteradianMedium', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 500;
+  line-height: 1.1428;
+  letter-spacing: -.07rem;
+  color: #ffffff;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.grid-layout--footer {
+  margin-top: 140px;
+  padding: 240px 0;
+  background: center no-repeat url("../img/footer-black-background.png");
+  background-size: contain;
+}
+
+.footer {
+  background: #04090D;
+  padding-bottom: 5rem;
+}
+
+.footer__copyright {
+  font-family: 'SteradianRegular', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #F6F9FB;
+  text-align: center;
+}
+
+.footer__madeby {
+  font-family: 'SteradianRegular', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: .09rem;
+  color: #3F4549;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+.footer__madeby a {
+  transition: 0.2s color ease-out;
+}
+
+.footer__madeby a:hover {
+  color: #ffffff;
+}
+
+.section-lets-talk {
+  height: 100vh;
+}
+
+.left-span {
+  height: 100vh;
+  width: 36.527vw;
+  max-width: 600px;
+  background: url("../img/lets-talk-bg.jpg") no-repeat;
+  background-size: cover;
+  padding: 56px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.right-span {
+  margin-left: 47.5%;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  height: 100vh;
+  overflow: auto;
+  position: relative;
+}
+
+.right-span__heading {
+  font-family: 'SteradianMedium', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: -.09rem;
+  line-height: 1.083333;
+  color: #04090D;
+  max-width: 460px;
+}
+
+.right-span__subline {
+  display: block;
+  font-family: 'SteradianRegular', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: -.025rem;
+  line-height: 1.4;
+  color: #212F3A;
+  max-width: 370px;
+  margin-top: 2rem;
+}
+
+.input-form {
+  margin-top: 3.5rem;
+}
+
+.input-form__row {
+  margin-top: 2.75rem;
+  position: relative;
+}
+
+.input-form__row__field {
+  display: block;
+  font-family: 'SteradianRegular', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #04090D;
+  border: 1px solid #CACFD2;
+  width: 380px;
+  padding: 20px;
+  transition: 0.2s border ease-out;
+  outline: none;
+}
+
+.input-form__row__field:focus {
+  border: 1px solid #04090D;
+  color: #04090D;
+}
+
+.input-form__row__field::placeholder {
+  color: #717F8A;
+}
+
+.input-form__row__field:nth-of-type(-n + 2) {
+  margin-top: 0;
+}
+
+.input-form__row__field--submit {
+  font-family: 'SteradianMedium', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: -.0225rem;
+  color: #04090D;
+  background: none;
+  border: none;
+  display: block;
+  padding: 8px 40px 8px 0;
+  width: fit-content;
+  cursor: pointer;
+  background: url("../img/arrow-icon.svg") no-repeat;
+  background-position: right center;
+  transition: 0.3s background-position cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.input-form__row__field--submit:hover {
+  background-position: right 8px center;
+}
+
+.input-form__row__field--submit:focus {
+  border: none;
+}
+
+.right-span--calendly {
+  margin-top: 4rem;
+}
+
+.confirmation-box {
+  z-index: -1;
+  opacity: 0;
+  position: absolute;
+  top: 80px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
+   * Printing Tables:
+   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
