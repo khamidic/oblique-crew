@@ -32,7 +32,7 @@
         </svg>
       </div>
     </div>
-    <div class="right-span">
+    <div class="right-span js-right-span">
       <div class="right-span__logo">
         <svg width="86" height="72" viewBox="0 0 86 72" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M19.8996 63.4575C19.8996 64.8435 20.3676 65.9955 21.3036 66.9135C22.2576 67.8315 23.4456 68.2995 24.8856 68.2995C26.3436 68.2995 27.5316 67.8495 28.4496 66.9315C29.3856 66.0135 29.8536 64.8615 29.8536 63.4755C29.8536 62.1255 29.3856 60.9735 28.4496 60.0555C27.5316 59.1375 26.3436 58.6875 24.8856 58.6875C23.4276 58.6875 22.2216 59.1375 21.3036 60.0555C20.3676 60.9735 19.8996 62.1255 19.8996 63.5115V63.4575ZM27.1356 63.5295C27.1356 64.1955 26.9196 64.7355 26.4876 65.1675C26.0556 65.5995 25.5156 65.8155 24.8496 65.8155C24.1836 65.8155 23.6436 65.5995 23.2296 65.1675C22.8156 64.7175 22.5996 64.1775 22.5996 63.5295C22.5996 62.8815 22.8156 62.3415 23.2296 61.8915C23.6436 61.4595 24.1836 61.2435 24.8496 61.2435C25.5156 61.2435 26.0556 61.4595 26.4876 61.8915C26.9196 62.3235 27.1356 62.8815 27.1356 63.5475V63.5295Z" fill="#04090D"/>
@@ -56,7 +56,25 @@
             <input class="input-form__row__field" type="text" id="name" placeholder="Your name" required>
           </div>
           <div class="input-form__row">
+            <input class="input-form__row__field" type="text" id="job-title" placeholder="CEO, Head of Marketing, etc." required>
+          </div>
+          <div class="input-form__row">
             <input class="input-form__row__field" type="email" id="email" placeholder="Your email" required>
+          </div>
+          <div class="input-form__row">
+            <div class="custom-select-wrapper">
+              <div class="custom-select">
+                <div class="custom-select__trigger"><span>I'm looking for</span>
+                  <div class="arrow"></div>
+                </div>
+                <div class="custom-options">
+                  <span class="custom-option" data-value="UI/UX Designer">UI/UX Designer</span>
+                  <span class="custom-option" data-value="Front-end Developer">Front-end Developer</span>
+                  <span class="custom-option" data-value="Back-end Developer">Back-end Developer</span>
+                  <span class="custom-option" data-value="Full Stack Developer">Full Stack Developer</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="input-form__row input-form__row--last">
             <input class="input-form__row__field input-form__row__field--submit" type="submit" id="submit" value="Proceed">
@@ -96,6 +114,9 @@
       opacity: 0,
       begin: () => {
         postSubmitContent.style.zIndex = '-1';
+      },
+      complete: () => {
+        document.querySelector('.js-right-span').scrollTo(0, 0);
       }
     }).add({
       targets: postSubmitContent,
@@ -106,7 +127,27 @@
     });
   });
 </script>
-
+<script>
+  document.querySelector('.custom-select-wrapper').addEventListener('click', function() {
+    this.querySelector('.custom-select').classList.toggle('open');
+  });
+  for (const option of document.querySelectorAll(".custom-option")) {
+    option.addEventListener('click', function() {
+      if(!this.classList.contains('selected')) {
+        if(this.parentNode.querySelector('.custom-option.selected') != null)
+          this.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
+        this.classList.add('selected');
+        this.closest('.custom-select').querySelector('.custom-select__trigger span').textContent = this.textContent;
+      }
+    }.bind(option));
+  }
+  window.addEventListener('click', function(e) {
+    const select = document.querySelector('.custom-select');
+    if (!select.contains(e.target)) {
+      select.classList.remove('open');
+    }
+  });
+</script>
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
   window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
