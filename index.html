@@ -25,8 +25,10 @@
 <body>
   <header class="header">
     <nav class="header__nav">
-      <a class="header__link header__link--nav" href="#hww">How we work</a>
-      <a class="header__link header__link--nav" href="#whyus">Why us</a>
+      <div class="header__nav__menu">
+        <a class="header__link header__link--nav" href="#hww">How we work</a>
+        <a class="header__link header__link--nav" href="#whyus">Why us</a>
+      </div>
       <div class="header__logo">
         <svg width="86" height="72" viewBox="0 0 86 72" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M19.8996 63.4575C19.8996 64.8435 20.3676 65.9955 21.3036 66.9135C22.2576 67.8315 23.4456 68.2995 24.8856 68.2995C26.3436 68.2995 27.5316 67.8495 28.4496 66.9315C29.3856 66.0135 29.8536 64.8615 29.8536 63.4755C29.8536 62.1255 29.3856 60.9735 28.4496 60.0555C27.5316 59.1375 26.3436 58.6875 24.8856 58.6875C23.4276 58.6875 22.2216 59.1375 21.3036 60.0555C20.3676 60.9735 19.8996 62.1255 19.8996 63.5115V63.4575ZM27.1356 63.5295C27.1356 64.1955 26.9196 64.7355 26.4876 65.1675C26.0556 65.5995 25.5156 65.8155 24.8496 65.8155C24.1836 65.8155 23.6436 65.5995 23.2296 65.1675C22.8156 64.7175 22.5996 64.1775 22.5996 63.5295C22.5996 62.8815 22.8156 62.3415 23.2296 61.8915C23.6436 61.4595 24.1836 61.2435 24.8496 61.2435C25.5156 61.2435 26.0556 61.4595 26.4876 61.8915C26.9196 62.3235 27.1356 62.8815 27.1356 63.5475V63.5295Z" fill="#04090D"/>
@@ -47,8 +49,10 @@
   </header>
   <header class="header header--sticky js-sticky">
     <nav class="header__nav">
-      <a class="header__link header__link--nav header__link--white" href="#hww">How we work</a>
-      <a class="header__link header__link--nav header__link--white" href="#whyus">Why us</a>
+      <div class="header__nav__menu">
+        <a class="header__link header__link--nav header__link--white" href="#hww">How we work</a>
+        <a class="header__link header__link--nav header__link--white" href="#whyus">Why us</a>
+      </div>
       <div class="header__logo">
         <svg width="63" height="53" viewBox="0 0 63 53" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M14.5753 46.7888C14.5753 47.8107 14.9187 48.6601 15.6054 49.337C16.3054 50.0138 17.177 50.3589 18.2335 50.3589C19.3032 50.3589 20.1749 50.0271 20.8484 49.3502C21.5351 48.6734 21.8785 47.824 21.8785 46.8021C21.8785 45.8067 21.5351 44.9573 20.8484 44.2804C20.1749 43.6035 19.3032 43.2717 18.2335 43.2717C17.1638 43.2717 16.279 43.6035 15.6054 44.2804C14.9187 44.9573 14.5753 45.8067 14.5753 46.8286V46.7888ZM19.8843 46.8419C19.8843 47.3329 19.7258 47.7311 19.4089 48.0496C19.0919 48.3681 18.6957 48.5274 18.2071 48.5274C17.7185 48.5274 17.3223 48.3681 17.0185 48.0496C16.7148 47.7178 16.5563 47.3197 16.5563 46.8419C16.5563 46.3641 16.7148 45.9659 17.0185 45.6341C17.3223 45.3156 17.7185 45.1563 18.2071 45.1563C18.6957 45.1563 19.0919 45.3156 19.4089 45.6341C19.7258 45.9527 19.8843 46.3641 19.8843 46.8551V46.8419Z" fill="#F9FBFD"/>
@@ -100,7 +104,7 @@
       <div class="container">
         <div class="grid-layout">
           <div class="grid-layout__col">
-            <h1 class="heading-main heading-main--hww">The experience we<br> offer is unique.</h1>
+            <h1 class="heading-main heading-main--hww"><div>The experience we</div><div><span class="good-one">offer is unique.</span></div></h1>
           </div>
         </div>
         <div class="grid-layout grid-layout--work-steps">
@@ -193,7 +197,7 @@
       <div class="container">
         <div class="grid-layout">
           <div class="grid-layout__col">
-            <h1 class="heading-main heading-main--why-us">What makes crew so special.</h1>
+            <h1 class="heading-main heading-main--why-us"><div>What makes the</div><div>crew special.</div></h1>
           </div>
         </div>
         <div class="grid-layout grid-layout--benefits">
@@ -206,7 +210,7 @@
             <h2 class="benefits-item__heading">High Quality</h2>
             <p class="benefits-item__paragraph">Our network of designers & developers is construct by rigorous selection process that is brining only the quality people in house</p>
           </div>
-          <div class="grid-layout__col grid-layout__col--3"></div>
+          <div class="grid-layout__col grid-layout__col--3 empty-item"></div>
           <div class="grid-layout__col grid-layout__col--3 benefits-item">
             <h2 class="benefits-item__heading">Lower Price</h2>
             <p class="benefits-item__paragraph">Our network of designers & developers is construct by rigorous selection process that is brining only the quality people in house</p>
@@ -246,8 +250,6 @@
           </div>
         </div>
         <div class="title-track">
-          <div class="title-track__mover">
-          </div>
         </div>
         <div class="grid-layout grid-layout--footer">
           <div class="grid-layout__col">
