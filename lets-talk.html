@@ -55,32 +55,36 @@
         <h1 class="right-span__heading">Let’s find you a<br>teammate</h1>
         <span class="right-span__subline">Leave us your email so we can reach out to you and discuss your requirements.</span>
         <form class="input-form">
-          <div class="input-form__row">
-            <input class="input-form__row__field" type="text" id="name" placeholder="Your name" required>
+          <div class="input-form__row js-field-name">
+            <input class="input-form__row__field" type="text" id="name" placeholder="Your name">
+            <p class="input-form__row__error-msg"></p>
           </div>
-          <div class="input-form__row">
-            <input class="input-form__row__field" type="text" id="job-title" placeholder="CEO, Head of Marketing, etc." required>
+          <div class="input-form__row js-field-title">
+            <input class="input-form__row__field" type="text" id="job-title" placeholder="CEO, Head of Marketing, etc.">
+            <p class="input-form__row__error-msg"></p>
           </div>
-          <div class="input-form__row">
-            <input class="input-form__row__field" type="email" id="email" placeholder="Your email" required>
+          <div class="input-form__row js-field-email">
+            <input class="input-form__row__field" type="email" id="email" placeholder="Your email">
+            <p class="input-form__row__error-msg"></p>
           </div>
-          <div class="input-form__row">
+          <div class="input-form__row js-field-talent">
             <div class="custom-select-wrapper">
               <div class="custom-select">
-                <div class="custom-select__trigger"><span>I'm looking for</span>
+                <div class="custom-select__trigger"><span>UI/UX Designer</span>
                   <div class="arrow"></div>
                 </div>
                 <div class="custom-options">
-                  <span class="custom-option" data-value="UI/UX Designer">UI/UX Designer</span>
+                  <span class="custom-option selected" data-value="UI/UX Designer">UI/UX Designer</span>
                   <span class="custom-option" data-value="Front-end Developer">Front-end Developer</span>
                   <span class="custom-option" data-value="Back-end Developer">Back-end Developer</span>
                   <span class="custom-option" data-value="Full Stack Developer">Full Stack Developer</span>
                 </div>
               </div>
             </div>
+            <p class="input-form__row__error-msg"></p>
           </div>
           <div class="input-form__row input-form__row--last">
-            <input class="input-form__row__field input-form__row__field--submit" type="submit" id="submit" value="Submit">
+            <input class="input-form__row__field input-form__row__field--submit js-field--submit" type="submit" id="submit" value="Submit">
           </div>
         </form>
       </div>
@@ -100,9 +104,89 @@
 <script src="js/anime.min.js"></script>
 <script>
   let submitForm = document.querySelector('.input-form');
+  const fieldName = document.querySelector('.js-field-name');
+  const fieldTitle = document.querySelector('.js-field-title');
+  const fieldEmail = document.querySelector('.js-field-email');
+  const fieldTalent = document.querySelector('.js-field-talent');
+
+  const fieldNameInput = fieldName.querySelector('input');
+  const fieldNameError = fieldName.querySelector('p');
+
+  const fieldEmailInput = fieldEmail.querySelector('input');
+  const fieldEmailError = fieldEmail.querySelector('p');
+
+  const fieldTitleInput = fieldTitle.querySelector('input');
+  const fieldTitleError = fieldTitle.querySelector('p');
+
+  fieldNameInput.addEventListener('focus', () => {
+    fieldNameError.innerHTML = "";
+    errorFlag = false;
+  });
+
+  fieldTitleInput.addEventListener('focus', () => {
+    fieldTitleError.innerHTML = "";
+    errorFlag = false;
+  });
+
+  fieldEmailInput.addEventListener('focus', () => {
+    fieldEmailError.innerHTML = "";
+    errorFlag = false;
+  });
+
+  fieldNameInput.addEventListener('blur', () => {
+    checkIfEmptyName();
+  });
+  fieldEmailInput.addEventListener('blur', () => {
+    if(checkIfEmptyEmail())
+      checkIfValidEmail();
+  });
+  fieldTitleInput.addEventListener('blur', () => {
+    checkIfEmptyTitle();
+  });
+
+  let errorFlag = false;
+
+  function checkIfEmptyName() {
+    if(fieldNameInput.value.length === 0) {
+      fieldNameError.innerHTML = "Your name is required";
+      errorFlag = true;
+    }
+  }
+  function checkIfEmptyEmail() {
+    if(fieldEmailInput.value.length === 0) {
+      fieldEmailError.innerHTML = "Your email is required";
+      errorFlag = true;
+      return false;
+    }
+    return true;
+  }
+  function validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  function checkIfValidEmail() {
+    if(!validateEmail(fieldEmailInput.value)) {
+      fieldEmailError.innerHTML = "Your email is not valid";
+      errorFlag = true;
+    }
+  }
+  function checkIfEmptyTitle() {
+    if(fieldTitleInput.value.length === 0) {
+      fieldTitleError.innerHTML = "Your title is required";
+      errorFlag = true;
+    }
+  }
+
   submitForm.addEventListener('submit', (e) => {
 
     e.preventDefault();
+    checkIfEmptyName();
+    checkIfEmptyTitle();
+    if(checkIfEmptyEmail())
+      checkIfValidEmail();
+    if(errorFlag)
+      return false;
 
     let preSubmitContent = document.querySelector('.js-field-box');
     let postSubmitContent = document.querySelector('.js-confirmation-box');
@@ -129,8 +213,6 @@
       }
     });
   });
-</script>
-<script>
   document.querySelector('.custom-select-wrapper').addEventListener('click', function() {
     this.querySelector('.custom-select').classList.toggle('open');
   });
@@ -150,6 +232,7 @@
       select.classList.remove('open');
     }
   });
+
 </script>
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>

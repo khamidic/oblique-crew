@@ -749,7 +749,7 @@ textarea {
 .right-span {
   padding-left: 47.5%;
   padding-top: 80px;
-  padding-bottom: 80px;
+  padding-bottom: 240px;
   height: 100vh;
   overflow: auto;
   position: relative;
@@ -782,12 +782,13 @@ textarea {
 }
 
 .input-form__row {
-  margin-top: 1.75rem;
+  margin-top: 0.25rem;
   position: relative;
+  padding-bottom: 2rem;
 }
 
 .input-form__row--last {
-  margin-top: 2.75rem;
+  margin-top: 1rem;
 }
 
 .input-form__row__field {
@@ -909,7 +910,7 @@ textarea {
   position: relative;
   display: block;
   max-width: 380px;
-  width: 100%;
+  width: calc(100% + 2px);
   padding: 0 23px 0 23px;
   font-family: 'SteradianRegular', sans-serif;
   font-size: 15px;
@@ -963,6 +964,16 @@ textarea {
   transform: rotate(45deg);
 }
 /* end */
+
+.input-form__row__error-msg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-family: 'SteradianRegular', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #FF5E5E;
+}
 
 .right-span--calendly {
   margin-top: 4rem;
