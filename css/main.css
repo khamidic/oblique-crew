@@ -44,6 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 a {
   text-decoration: none;
   color: inherit;
+  outline: none;
 }
 
 ::-moz-selection {
@@ -736,6 +737,7 @@ textarea {
   position: absolute;
   left: 0;
   top: 0;
+  z-index: 1;
 }
 
 .right-span {
@@ -789,7 +791,8 @@ textarea {
   font-weight: 500;
   color: #04090D;
   border: 1px solid #CACFD2;
-  width: 380px;
+  max-width: 380px;
+  width: 100%;
   padding: 20px;
   transition: 0.2s border ease-out;
   outline: none;
@@ -836,7 +839,8 @@ textarea {
 .custom-select-wrapper {
   position: relative;
   user-select: none;
-  width: 380px;
+  max-width: 380px;
+  width: 100%;
 }
 
 .custom-select {
@@ -871,7 +875,8 @@ textarea {
   position: absolute;
   display: block;
   top: 100%;
-  width: 380px;
+  max-width: 380px;
+  width: 100%;
   left: 0;
   font-family: 'SteradianRegular', sans-serif;
   font-size: 15px;
@@ -897,7 +902,8 @@ textarea {
 .custom-option {
   position: relative;
   display: block;
-  width: 380px;
+  max-width: 380px;
+  width: 100%;
   padding: 0 23px 0 23px;
   font-family: 'SteradianRegular', sans-serif;
   font-size: 15px;
