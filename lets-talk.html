@@ -185,8 +185,22 @@
     checkIfEmptyTitle();
     if(checkIfEmptyEmail())
       checkIfValidEmail();
+
     if(errorFlag)
       return false;
+
+    // **
+    // **
+    // **
+    // ako ti trebaju benjaja vrijednosti
+
+    const userName = fieldNameInput.value;
+    const userTitle = fieldTitleInput.value;
+    const userEmail = fieldEmailInput.value;
+    const userTalent = fieldTalent.querySelector('.custom-select-wrapper .custom-select .custom-options .selected').getAttribute('data-value');
+
+    console.log(userName + " " + userTitle + " " + userEmail + " " + userTalent);
+
 
     let preSubmitContent = document.querySelector('.js-field-box');
     let postSubmitContent = document.querySelector('.js-confirmation-box');
