@@ -340,9 +340,9 @@ textarea {
 
 .gif-circle {
   position: absolute;
-  width: 260px;
-  height: 260px;
-  border-radius: 260px;
+  width: 18.05vw;
+  height: 18.05vw;
+  border-radius: 18.05vw;
   z-index: 1;
   transform: scale(0);
   transform-origin: center center;
@@ -1000,12 +1000,31 @@ input:-webkit-autofill:active  {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
+@media screen and (max-width: 1160px) {
+  .heading-hero {
+    font-size: 5rem;
+  }
+  .heading-hero__bottom {
+    height: 6px;
+    width: 820px;
+  }
+  .container--hero {
+    padding: 0;
+  }
+  .hero-link {
+    cursor: auto;
+  }
+}
+
 @media screen and (max-width: 980px) {
   html {
     font-size: 14px;
   }
   .container {
     padding: 0 88px;
+  }
+  .container--hero {
+    padding: 0;
   }
   .visual-container--benefits {
     width: 280px;
@@ -1016,6 +1035,21 @@ input:-webkit-autofill:active  {
   }
   .right-span {
     padding-left: 45%;
+  }
+  .heading-hero__bottom {
+    width: 720px;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .heading-hero__bottom {
+    display: none;
+  }
+  .heading-hero__underline {
+    border-bottom: 6px solid #132BFF;
+  }
+  .container--hero {
+    padding: 0 72px;
   }
 }
 

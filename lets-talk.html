@@ -52,7 +52,7 @@
         </a>
       </div>
       <div class="field-box js-field-box">
-        <h1 class="right-span__heading">Let’s find you a<br>teammate</h1>
+        <h1 class="right-span__heading"><div>Let’s find you a</div><div>teammate</div></h1>
         <span class="right-span__subline">Leave us your email so we can reach out to you and discuss your requirements.</span>
         <form class="input-form">
           <div class="input-form__row js-field-name">
@@ -198,9 +198,6 @@
     const userTitle = fieldTitleInput.value;
     const userEmail = fieldEmailInput.value;
     const userTalent = fieldTalent.querySelector('.custom-select-wrapper .custom-select .custom-options .selected').getAttribute('data-value');
-
-    console.log(userName + " " + userTitle + " " + userEmail + " " + userTalent);
-
 
     let preSubmitContent = document.querySelector('.js-field-box');
     let postSubmitContent = document.querySelector('.js-confirmation-box');
