@@ -727,6 +727,13 @@ textarea {
   height: 100vh;
 }
 
+.letstalk__logo {
+  position: absolute;
+  top: 56px;
+  left: 56px;
+  z-index: 1;
+}
+
 .left-span {
   height: 100vh;
   width: 36.527vw;
@@ -737,7 +744,6 @@ textarea {
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 1;
 }
 
 .right-span {
@@ -927,8 +933,8 @@ textarea {
 
 .arrow {
   position: relative;
-  height: 15px;
-  width: 15px;
+  height: 10px;
+  width: 10px;
 }
 .arrow::before, .arrow::after {
   content: "";
@@ -939,21 +945,21 @@ textarea {
   transition: all 0.5s;
 }
 .arrow::before {
-  left: -5px;
+  left: -3px;
   transform: rotate(45deg);
-  background-color: #394a6d;
+  background-color: #04090D;
 }
 .arrow::after {
-  left: 5px;
+  left: 3px;
   transform: rotate(-45deg);
-  background-color: #394a6d;
+  background-color: #04090D;
 }
 .open .arrow::before {
-  left: -5px;
+  left: -3px;
   transform: rotate(-45deg);
 }
 .open .arrow::after {
-  left: 5px;
+  left: 3px;
   transform: rotate(45deg);
 }
 /* end */
@@ -1047,6 +1053,9 @@ input:-webkit-autofill:active  {
     bottom: 0;
     transform: translate(-50%, -2rem);
     width: 320px;
+  }
+  .letstalk__logo {
+    display: none;
   }
   .left-span {
     display: none;
