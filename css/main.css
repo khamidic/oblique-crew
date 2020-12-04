@@ -1011,6 +1011,9 @@ input:-webkit-autofill:active  {
   .container--hero {
     padding: 0;
   }
+}
+
+@media screen and (max-width: 1080px){
   .hero-link {
     cursor: auto;
   }
